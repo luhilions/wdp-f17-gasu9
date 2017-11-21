@@ -5,35 +5,37 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <style> .feedback { width: 500px; background-color: gray; padding: 10px; border: 10px; font-family: tahoma; font-size: 15px; } input { text-align: center; padding: 10px; } </style>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Web Form</title>
   </head>
+
   <body>
     <form class="feedback">
     <fieldset>
       <legend>Give us your feedback</legend>
-        Name: <input type="text" size="20" name="name" />
+        Full name: <input type="text" size="20" name="firstname" />
         <br />
       Year:<br />
         <input type="radio" name="year" value="brown" />Freshman<br/>
         <input type="radio" name="year" value="blue" />Sophmore<br />
         <input type="radio" name="year" value="green" />Junior<br />
         <input type="radio" name="year" value="other" />Senior<br />
-      After School Activities: <br />
-        <input type="checkbox" size="30" name="Sports" />Sports<br/>
+      Activities: <br />
+        <input type="checkbox" size="30" name="Sport" />Sports<br/>
         <input type="checkbox" size="30" name="Music" />Music<br />
         <input type="checkbox" size="30" name="Theator" />Theater<br />
         <input type="checkbox" size="30" name="Other" />Other<br />
-       Languages You Speak:<br />
-        <select name="language">
-          <option value="Chinese">Chinese</option>  
-          <option value="Russian">Russian</option>
-          <option value="Chinese">Spanish</option>
-          <option value="Swedish">Swedish</option>
+      Quarter:<br />
+        <select name="Quarter">
+          <option value="spanish">Fall</option>  
+          <option value="french">Winter</option>
+          <option value="japanese">Spring</option>
+          <option value="arabic">Summer</option>
         </select>
       <div>
-        <input class="center" type="button" value="Click here to submit"/>
+      Comment: <br />
+      <textarea name="more" rows="8" cols="30">Enter your feedback here.
+      </textarea><br />
+        <input class="button" type="button" value="Click here to submit"/>
       </div>
      </fieldset>
     </form>
