@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta charset="utf-8">
+
+
+    <title>ParentsWeb ~ Login</title>
+    <script type="text/javascript">
+    function setfocus(form){
+        form.username.focus();
+    }
+    function validatefields(form){
+        
+        var alertmsg = "";
+        if (form.DistrictCode.value == ""){
+            alertmsg += "Enter your District Code.\n";
+        }
+        if (form.username.value == ""){
+            alertmsg += "Enter your Username.\n";
+        }
+        if (form.password.value == ""){
+            alertmsg += "Enter your Password.\n";
+        }
+        if (alertmsg == ""){
+            return true;
+        }
+        else {
+            alert(alertmsg);
+            return false;
+        }
+    }
+    </script>
+
+    <link href="/pw/css/login.css" rel="stylesheet" type="text/css" />
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link href="/pw/css/css.css" rel="stylesheet" type="text/css" />
+<link href="/pw/css/jScrollPane.css" rel="stylesheet" type="text/css" />
+<link href="/pw/css/jquery-ui-1.9.2.custom.css" rel="stylesheet" type="text/css" />
+<link href="/pw/js/impromptu/src/jquery-impromptu.css" rel="stylesheet" type="text/css" />
+<link href="/pw/design/DL-CO/DL-CO/css.css" rel="stylesheet" type="text/css" /> 
+
+<script type="text/javascript" src="/pw/js/jquery.js"></script>
+<script type="text/javascript" src="/pw/js/jquery-ui-1.9.2.custom.js"></script>
+<script type="text/javascript" src="/pw/js/impromptu/src/jquery-impromptu.js"></script>
+<script type="text/javascript" src="/pw/js/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="/pw/js/jScrollPane.js"></script>
+<script type="text/javascript" src="/pw/js/jquerypersonalize.js"></script>
+<script type="text/javascript" src="/pw/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="/pw/js/mwheelIntent.js"></script>
+<script type="text/javascript" src="/pw/js/table_sorting.js"></script>
+<script type="text/javascript" src="/pw/js/left_nav.js"></script>
+<script type="text/javascript" src="/pw/js/jquery.tablesorter.min.js"></script>
+<script src="/pw/js/underscore-min.js"></script>
+<script src="/pw/js/jquery.floatThead.min.js"></script>
+<script src="/pw/js/resize-tabbing.js"></script>
+<!--[if lte IE 8]>
+<script src="/pw/js/html5.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('body').addClass('ie8');
+});
+</script>
+<![endif]-->
+
+
+    <link href="/pw/images/favicon.ico" rel="shortcut icon" />
+
+
+<script>
+    $(document).ready(function(){
+        $('.ui-tabs-nav').each(function(i,n){
+            var totalWidth = 0;
+            var originalHight = $(n).parent().outerHeight();
+            $(n).children().each(function(i,k){
+                totalWidth+=$(k).outerWidth(true);
+            });
+
+            if(totalWidth >= $(n).width()){
+                $(n).css('width', (totalWidth+5)+'px');
+                $(n).parent().css('overflow-x', 'auto');
+                $(n).parent().parent().find('.block_body').css('padding-top', $(n).parent().outerHeight(true));
+            }
+        });
+    });
+</script>
+
+
+
+
+<style>
+    
+    model{
+        display: block;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+    }
+
+    model-container{
+        display: 'block';
+        position: fixed;
+        width: 729px;
+        height: 316px;
+        margin: auto;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        z-index:20;
+    }
+
+    model-shadow{
+        display: 'block';
+    }
+
+</style>
+
+<script>
+function Model(){
+    this.element = document.createElement('model');
+    this.shadow = document.createElement('model-shadow');
+    this.container = document.createElement('model-container');
+    this.element.appendChild(this.shadow);
+    this.element.appendChild(this.container);
+    this.element.style.display="none";
+    document.body.appendChild(this.element);
+    this.shadow.onclick = this.destroy.bind(this);
+    this.shadow.setAttribute('id', 'black_overlay');
+    this.container.setAttribute('id', 'overlay');
+    this.shadow.style.zIndex = 11;
+    this.shadow.style.display = 'block';
+    this.container.style.zIndex = 12;
+}
+
+Model.prototype.setHTML = function(data) {
+    this.container.innerHTML = data;
+}
+
+Model.prototype.show = function() {
+    this.element.style.display="block";
+};
+
+Model.prototype.hide = function() {
+    this.element.style.display="none";
+};
+
+Model.prototype.destroy = function() {
+    this.element.parentElement.removeChild(this.element);
+};
+
+Model.hide = function(){
+    $('model').remove();
+}
+</script>
+
+
+
+</head>
+
+
+<body onload="setfocus(document.frm);">
+
+    <div class="wrapper">
+        <header_pw><div class="header_pw">
+            <section class="logo">
+            
+                    <div id="bg_image_only">
+                        <a href="/pw/"><span>Lutheran High School</span></a>
+                    </div>
+                
+            </section>
+        </div></header_pw>
+        <div class="body_section">
+            
+
+    <section id="loginbox">
+
+    <form action="oi.html" method="post" target="_top" name="frm" id="frm" onsubmit="return validatefields(document.frm);">
+        <fieldset>      
+            
+            <div id="loginfields">
+                <span class="login_label">District Code:</span><br />
+                <input type="text" class="text" name="DistrictCode" id="DistrictCode" value="DL-CO" tabindex="1" /><br />
+                <span class="login_label">Username:</span><br />
+                <input type="text" class="text" name="username" id="username" value="" tabindex="2" /><br />
+                <span class="login_label">Password:</span><br />
+                <input type="password" class="text" name="password" id="password" tabindex="3" /><br />
+                <a href="forgot-login.cfm?DistrictCode=DL-CO">Forgot Username / Password?</a><br /><br />
+                <input type="radio" name="UserType" id="UserType" value="PARENTSWEB-PARENT" tabindex="4" checked="checked" />Parent
+                &nbsp;&nbsp;
+                <input type="radio" name="UserType" id="UserType" value="PARENTSWEB-STUDENT" tabindex="4" />Student
+                &nbsp;&nbsp;
+                <input type="radio" name="UserType" id="UserType" value="PARENTSWEB-STAFF" tabindex="4" />Staff
+                <br /><br />
+                <input type="submit" class="graybutton" name="login" id="submit" tabindex="5" value="Login" />
+                <div style="padding-top: 6px;display: inline-block;padding-left: 20px;">
+                    <a href="create-account.cfm?DistrictCode=DL-CO">Create New ParentsWeb Account</a>
+                </div>
+                <br />
+            </div>
+        </fieldset>
+    </form>
+
+    <p>
+
+<div style="padding-top:13px;">
+  <div style="font-size: 12px;/* font-weight: bold; *//* float: left; */text-align: center;padding-bottom: 7px;">Get the RenWeb Home App</div>
+  <div style="height: 42px;padding-left: 30px;padding-right: 30px;">
+    <a href="https://itunes.apple.com/us/app/renweb-home/id518334522?mt=8&amp;uo=4" target="itunes_store" style="float: left;">
+        <img src="images/itunes-app-store-logo.png" alt="itunes-app-store-logo" style="height: 40px;">
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.renweb.homeapp" style="float: right;">
+        <img alt="Get it on Google Play" src="images/android_app_store.png" style="height: 40px;">
+    </a>
+
+  </div>
+  <div class="home_trust">
+      <div><a href="//privacy.truste.com/privacy-seal/validation?rid=667271a8-c084-4a73-a3be-66ca84204234" target="_blank"><img style="border: none" src="//privacy-policy.truste.com/privacy-seal/seal?rid=667271a8-c084-4a73-a3be-66ca84204234" alt="TRUSTe"/></a></div>
+    </div> 
+</div>
+
+<div style="font-size: 12px;padding-top: 20px;">
+    <a href="http://wpc.8EE7.taucdn.net/008EE7/Videos/Overview%20Videos/RenWeb%20Home.mp4" target="blank">Learn More</a> about the RenWeb Home app for accessing
+ParentsWeb information via the convenience of an app!
+</div>
+    
+    </section>
+        
+
+            </div>
+        <footer>
+            Powered by <a href="http://www.renweb.com" target="_blank">RenWeb Student Information Systems</a> | <a href="http://www.renweb.com/privacy-policy/" target="_blank">Privacy Policy</a>
+        </footer>
+    </div>
+
+</body>
+
+
+</html>
